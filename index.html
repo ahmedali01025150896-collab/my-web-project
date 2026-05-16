@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عيد ميلاد سعيد يا روان ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         body, html {
@@ -13,7 +13,7 @@
             padding: 0;
             background: black;
             color: white;
-            font-family: 'Amiri', serif; /* الخط الأساسي المزخرف */
+            font-family: 'Amiri', serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -53,80 +53,61 @@
 
         .content-box {
             max-width: 750px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             padding: 40px;
             border-radius: 25px;
             border: 1px solid rgba(255, 77, 77, 0.3);
-            box-shadow: 0 0 30px rgba(255, 77, 77, 0.2);
+            box-shadow: 0 0 30px rgba(255, 77, 77, 0.3);
         }
 
         h1 {
             color: #ff4d4d;
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 2.8rem;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 3rem;
             margin-bottom: 30px;
             text-shadow: 0 0 15px rgba(255, 77, 77, 0.8);
         }
 
-        /* تنسيق الجمل التي ستظهر حرفاً بحرف */
         .typewriter-text {
-            font-size: 1.5rem;
-            line-height: 2;
+            font-size: 1.6rem;
+            line-height: 2.2;
             margin-bottom: 25px;
-            min-height: 1.5em;
             display: block;
         }
 
         .highlight {
             color: #ff4d4d;
             font-weight: bold;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             display: block;
             margin: 15px 0;
+            font-family: 'Aref Ruqaa', serif;
         }
 
         button {
-            background: #ff4d4d;
+            background: linear-gradient(45deg, #ff4d4d, #b30000);
             color: white;
             border: none;
             padding: 15px 45px;
             border-radius: 50px;
             font-size: 1.3rem;
             cursor: pointer;
-            box-shadow: 0 0 15px #ff4d4d;
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.4);
             transition: 0.3s;
-            font-family: 'Reem Kufi', sans-serif;
-        }
-
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #ff4d4d;
+            font-family: 'Aref Ruqaa', serif;
         }
 
         input {
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #ff4d4d;
-            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid #ff4d4d;
+            background: #000;
             color: white;
             text-align: center;
-            font-size: 1rem;
-            margin-bottom: 15px;
-            width: 80%;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 3px;
-            background-color: #ff4d4d;
-            margin-right: 5px;
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            width: 85%;
+            outline: none;
         }
     </style>
 </head>
@@ -141,7 +122,86 @@
 
     <div class="container">
         <div id="lockScreen" class="content-box">
-            <h2 style="color: #ff4d4d; font-family: 'Reem Kufi';">الموقع محمي ❤️</h2>
-            <p>اكتب كلمة المرور علشان تشوف المفاجأة</p>
-            <input type="text" id="passwordInput" placeholder="ادخلي كلمة المرور هنا...">
-            <button onclick="checkPassword()">دخول ✨
+            <h2 style="color: #ff4d4d; font-family: 'Aref Ruqaa'; font-size: 2rem;">الموقع محمي ❤️</h2>
+            <p style="font-size: 1.2rem;">اكتبي كلمة المرور السرية ✨</p>
+            <input type="text" id="passwordInput" placeholder="اكتبي الكلمة هنا...">
+            <br>
+            <button onclick="checkPassword()">دخول ✨</button>
+        </div>
+
+        <button id="startBtn" style="display: none;" onclick="startSurprise()">اضغط هنا يا روان ✨</button>
+
+        <div id="mainContent" style="display: none;" class="content-box">
+            <h1 id="mainTitle"></h1>
+            <div id="messageContainer"></div>
+            <div id="finalFooter" style="margin-top: 30px; font-style: italic; color: #ffb3b3; display: none; font-size: 1.3rem;">بكل حب من أحمد إلى روان ❤️</div>
+        </div>
+    </div>
+
+    <script>
+        // كلمة المرور اللي طلبتها بالظبط
+        const pass = "كل سنه وانتِ طيبه ي رورو🥹💞";
+
+        function checkPassword() {
+            const input = document.getElementById("passwordInput").value.trim();
+            // مقارنة بسيطة عشان نتفادى مشاكل المسافات الزيادة
+            if (input === pass) {
+                document.getElementById("lockScreen").style.display = "none";
+                document.getElementById("startBtn").style.display = "block";
+            } else {
+                alert("كلمة المرور غلط يا جميلة، تأكدي من كتابتها بالظبط ❤️");
+            }
+        }
+
+        const messages = [
+            "النهارده مش يوم عادي خالص… النهارده اليوم اللي الدنيا كسبت فيه واحدة زيك 🌍✨",
+            "اليوم اللي اتولدت فيه أجمل ضحكة، وأحن قلب، وألطف روح ممكن حد يقابلها 💖",
+            "<span class='highlight'>16 سنة يا بنتي 😭🎉</span>",
+            "ستاشر سنة من الجمال، والطيبة، والضحك اللي بيغيّر أي يوم وحش لفرحة 💕🌸",
+            "كل سنة وانتي أحلى حاجة حصلت في حياتي ❤️",
+            "بجد مهما كتبت كلام مش هيوصف قد إيه انتي غالية عليا 🫶🏻💘",
+            "<span class='highlight'>انتي الأمان والونس والراحة..</span>",
+            "يارب السنة دي تكون أسعد سنة في حياتك 🎂✨",
+            "<span class='highlight'>16 سنة؟ بقيتي قمر معتمد 🌙💘</span>",
+            "أنا بحبك حب قد السما وأكبر 💞🌍",
+            "<span class='highlight' style='font-size: 2.2rem;'>بحبك أوي أوي أوي 😭❤️❤️❤️❤️</span>",
+            "وكل سنة وانتي أجمل نعمة في حياتي 💞🫶🏻"
+        ];
+
+        async function typeWriter(text, elementId, speed = 50) {
+            const element = document.getElementById(elementId);
+            if (text.includes("<span")) {
+                element.innerHTML = text;
+                return;
+            }
+            
+            for (let i = 0; i < text.length; i++) {
+                element.innerHTML += text.charAt(i);
+                await new Promise(res => setTimeout(res, speed));
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }
+        }
+
+        async function startSurprise() {
+            const audio = document.getElementById("bgMusic");
+            audio.play();
+
+            document.getElementById("startBtn").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+
+            await typeWriter("Happy Birthday روان ❤️🎂", "mainTitle", 100);
+
+            const container = document.getElementById("messageContainer");
+            for (let i = 0; i < messages.length; i++) {
+                const p = document.createElement("p");
+                p.className = "typewriter-text";
+                p.id = "msg-" + i;
+                container.appendChild(p);
+                await typeWriter(messages[i], p.id, 50);
+                await new Promise(res => setTimeout(res, 800));
+            }
+            document.getElementById("finalFooter").style.display = "block";
+        }
+    </script>
+</body>
+</html>
