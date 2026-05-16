@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد ميلاد سعيد يا روان ❤️</title>
+    <style>
+        /* --- تنسيق الصفحة والخلفية --- */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* خلفية النجوم المتحركة */
+        .stars-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+        }
+
+        .twinkling {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+            background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+            animation: move-twink-back 200s linear infinite;
+        }
+
+        @keyframes move-twink-back {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+
+        /* --- حاوية المحتوى --- */
+        .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            text-align: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        .content-box {
+            max-width: 700px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 77, 77, 0.3);
+            box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
+        }
+
+        /* شاشة القفل */
+        #lockScreen {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ff4d4d;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        h1 {
+            color: #ff4d4d;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
+        }
+
+        .message-container p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-out;
+        }
+
+        .show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .highlight {
+            color: #ff4d4d;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        button {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff4d4d;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #ff4d4d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container"></div>
+    <div class="twinkling"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <div id="lockScreen" class="content-box">
+            <h2 style="color: #ff4d4d;">الموقع محمي ❤️</h2>
+            <p>اكتب كلمة المرور علشان تشوف المفاجأة</p>
+            <input type="text" id="passwordInput" placeholder="ادخلي كلمة المرور هنا...">
+            <button onclick="checkPassword()">دخول ✨</button>
+        </div>
+
+        <button id="startBtn" style="display: none;" onclick="startSurprise()">اضغط هنا يا روان ✨</button>
+
+        <div id="mainContent" style="display: none;" class="content-box">
+            <h1 class="animate">Happy Birthday روان ❤️🎂</h1>
+            
+            <div class="message-container">
+                <p class="animate">النهارده مش يوم عادي خالص… النهارده اليوم اللي الدنيا كسبت فيه واحدة زيك 🌍✨</p>
+                <p class="animate">اليوم اللي اتولدت فيه أجمل ضحكة، وأحن قلب، وألطف روح ممكن حد يقابلها 💖</p>
+                <p class="animate highlight">16 سنة يا بنتي 😭🎉</p>
+                <p class="animate">ستاشر سنة من الجمال، والطيبة، والبنان الحلو، والضحك اللي بيغيّر أي يوم وحش لضحك وفرحة 💕🌸</p>
+                <p class="animate">كل سنة وانتي أحلى حاجة حصلت في حياتي ❤️</p>
+                <p class="animate">كل سنة وانتي قريبة مني، وضحكتك ماليه الدنيا حواليا نور وسعادة 🥹💫</p>
+                <p class="animate">بجد مهما كتبت كلام مش هيوصف قد إيه انتي غالية عليا، وقد إيه وجودك بيفرق معايا في كل تفصيلة صغيرة 🫶🏻💘</p>
+                <p class="animate highlight">انتي مش بس حبيبتي…</p>
+                <p class="animate">انتي الأمان، والونس، والراحة، والسبب اللي بيخليني أبتسم من غير سبب 🥺❤️</p>
+                <p class="animate">لما الدنيا تضيق بيا، مجرد كلامك بيهديني 🌍💗 ولما أكون مبسوط، أول حد نفسي أحكيله هو انتي 🥹💞</p>
+                <p class="animate">عارفة؟ كل مرة ببصلك فيها بحس إني محظوظ بشكل غريب 😭💕</p>
+                <p class="animate">محظوظ إني عرفت إنسانة جميلة زيك، بقلبك الحنين، واهتمامك، وطريقتك اللي تخلي أي حد يتعلق بيكي من أول كلام 💓🌷</p>
+                <p class="animate">يارب السنة دي تكون أسعد سنة في حياتك 🎂✨ يارب كل أحلامك تتحقق، وكل حاجة نفسك فيها تيجي لعندك بسهولة وفرحة 💖</p>
+                <p class="animate">يارب أشوفك دايمًا ناجحة، مبسوطة، مرتاحة، وضحكتك عمرها ما تغيب 😭🫶🏻 لأنك تستحقي كل حاجة حلوة في الدنيا والله 🌎💝</p>
+                <p class="animate highlight">16 سنة؟ 😭🎉 لا لا… كده رسميًا بقيتي قمر معتمد 🌙💘</p>
+                <p class="animate">والناس كلها لازم تتعامل بحذر من كمية الجمال واللطافة اللي ماشية على الأرض 😂❤️</p>
+                <p class="animate">أنا بحبك حب قد السما وأكبر 💞🌍 حب مليان اهتمام، خوف عليكي، فرحة بيكي، وفخر بكل حاجة بتعمليها 🥺💖</p>
+                <p class="animate">ومهما الأيام تعدي، هتفضلي أغلى حد عندي ❤️🫂</p>
+                <p class="animate highlight">وعد مني؟</p>
+                <p class="animate">أفضل جنبك، أفرح لفرحك، وأهون عليكي زعلك، وأفضل أقولك قد إيه انتي مميزة وجميلة ومفيش منك اتنين 💕🌸</p>
+                <p class="animate">Happy Birthday يا أجمل روان في الدنيا 🎂👑💖</p>
+                <p class="animate">يا أحلى بنت كملت 16 سنة النهارده 😭🎉🎀</p>
+                <p class="animate">يارب أيامك كلها تبقى ضحك وفرح وحب وألوان وحاجات حلوة شبه قلبك 💗✨</p>
+                <p class="animate" style="font-size: 1.5rem;">بحبك أوي أوي أوي أوي أوي أوي 😭❤️❤️❤️❤️❤️</p>
+                <p class="animate">وكل سنة وانتي حبيبتي، وصاحبتي، وأجمل نعمة في حياتي 💞🫶🏻🌸🎂👑</p>
+            </div>
+            
+            <div class="footer-love animate">بكل حب من أحمد إلى روان ❤️</div>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = "كل سنه وانتِ طيبه ي رورو🥹💞";
+
+        function checkPassword() {
+            const input = document.getElementById("passwordInput").value;
+            if (input === correctPassword) {
+                document.getElementById("lockScreen").style.display = "none";
+                document.getElementById("startBtn").style.display = "block";
+            } else {
+                alert("كلمة المرور غلط يا جميل، ركزي في الـ emojis والمسافات! ❤️");
+            }
+        }
+
+        function startSurprise() {
+            const audio = document.getElementById("bgMusic");
+            audio.play().catch(e => console.log("الصوت يحتاج تفاعل"));
+
+            document.getElementById("startBtn").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+
+            const paragraphs = document.querySelectorAll('.animate');
+            paragraphs.forEach((p, index) => {
+                setTimeout(() => {
+                    p.classList.add('show');
+                    window.scrollTo(0, document.body.scrollHeight);
+                }, index * 2500);
+            });
+        }
+    </script>
+</body>
+</html>
+
