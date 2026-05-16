@@ -53,14 +53,13 @@
 
         .content-box {
             max-width: 700px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             padding: 30px;
             border-radius: 20px;
             border: 1px solid rgba(255, 77, 77, 0.3);
             box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
         }
 
-        /* شاشة القفل */
         #lockScreen {
             display: flex;
             flex-direction: column;
@@ -84,16 +83,18 @@
             text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
         }
 
-        .message-container p {
+        .animate {
             font-size: 1.2rem;
             line-height: 1.8;
             margin-bottom: 25px;
             opacity: 0;
             transform: translateY(20px);
             transition: all 1s ease-out;
+            display: none; /* مخفي في البداية */
         }
 
         .show {
+            display: block !important;
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
@@ -128,7 +129,7 @@
     <div class="twinkling"></div>
 
     <audio id="bgMusic" loop>
-        <source src="birthday.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
     <div class="container">
@@ -150,26 +151,15 @@
                 <p class="animate highlight">16 سنة يا بنتي 😭🎉</p>
                 <p class="animate">ستاشر سنة من الجمال، والطيبة، والبنان الحلو، والضحك اللي بيغيّر أي يوم وحش لضحك وفرحة 💕🌸</p>
                 <p class="animate">كل سنة وانتي أحلى حاجة حصلت في حياتي ❤️</p>
-                <p class="animate">كل سنة وانتي قريبة مني، وضحكتك ماليه الدنيا حواليا نور وسعادة 🥹💫</p>
-                <p class="animate">بجد مهما كتبت كلام مش هيوصف قد إيه انتي غالية عليا، وقد إيه وجودك بيفرق معايا في كل تفصيلة صغيرة 🫶🏻💘</p>
+                <p class="animate">كل سنة وانتي قريبة مني، وضحكتك ماليه الدنيا حواليا نور وسعادة 💫</p>
+                <p class="animate">بجد مهما كتبت كلام مش هيوصف قد إيه انتي غالية عليا 🫶🏻💘</p>
                 <p class="animate highlight">انتي مش بس حبيبتي…</p>
                 <p class="animate">انتي الأمان، والونس، والراحة، والسبب اللي بيخليني أبتسم من غير سبب 🥺❤️</p>
-                <p class="animate">لما الدنيا تضيق بيا، مجرد كلامك بيهديني 🌍💗 ولما أكون مبسوط، أول حد نفسي أحكيله هو انتي 🥹💞</p>
-                <p class="animate">عارفة؟ كل مرة ببصلك فيها بحس إني محظوظ بشكل غريب 😭💕</p>
-                <p class="animate">محظوظ إني عرفت إنسانة جميلة زيك، بقلبك الحنين، واهتمامك، وطريقتك اللي تخلي أي حد يتعلق بيكي من أول كلام 💓🌷</p>
-                <p class="animate">يارب السنة دي تكون أسعد سنة في حياتك 🎂✨ يارب كل أحلامك تتحقق، وكل حاجة نفسك فيها تيجي لعندك بسهولة وفرحة 💖</p>
-                <p class="animate">يارب أشوفك دايمًا ناجحة، مبسوطة، مرتاحة، وضحكتك عمرها ما تغيب 😭🫶🏻 لأنك تستحقي كل حاجة حلوة في الدنيا والله 🌎💝</p>
-                <p class="animate highlight">16 سنة؟ 😭🎉 لا لا… كده رسميًا بقيتي قمر معتمد 🌙💘</p>
-                <p class="animate">والناس كلها لازم تتعامل بحذر من كمية الجمال واللطافة اللي ماشية على الأرض 😂❤️</p>
-                <p class="animate">أنا بحبك حب قد السما وأكبر 💞🌍 حب مليان اهتمام، خوف عليكي، فرحة بيكي، وفخر بكل حاجة بتعمليها 🥺💖</p>
-                <p class="animate">ومهما الأيام تعدي، هتفضلي أغلى حد عندي ❤️🫂</p>
-                <p class="animate highlight">وعد مني؟</p>
-                <p class="animate">أفضل جنبك، أفرح لفرحك، وأهون عليكي زعلك، وأفضل أقولك قد إيه انتي مميزة وجميلة ومفيش منك اتنين 💕🌸</p>
-                <p class="animate">Happy Birthday يا أجمل روان في الدنيا 🎂👑💖</p>
-                <p class="animate">يا أحلى بنت كملت 16 سنة النهارده 😭🎉🎀</p>
-                <p class="animate">يارب أيامك كلها تبقى ضحك وفرح وحب وألوان وحاجات حلوة شبه قلبك 💗✨</p>
-                <p class="animate" style="font-size: 1.5rem;">بحبك أوي أوي أوي أوي أوي أوي 😭❤️❤️❤️❤️❤️</p>
-                <p class="animate">وكل سنة وانتي حبيبتي، وصاحبتي، وأجمل نعمة في حياتي 💞🫶🏻🌸🎂👑</p>
+                <p class="animate">يارب السنة دي تكون أسعد سنة في حياتك 🎂✨</p>
+                <p class="animate highlight">16 سنة؟ بقيتي قمر معتمد 🌙💘</p>
+                <p class="animate">أنا بحبك حب قد السما وأكبر 💞🌍</p>
+                <p class="animate" style="font-size: 1.5rem;">بحبك أوي أوي أوي أوي أوي 😭❤️❤️❤️❤️</p>
+                <p class="animate">وكل سنة وانتي حبيبتي، وصاحبتي، وأجمل نعمة في حياتي 💞🫶🏻🌸</p>
             </div>
             
             <div class="footer-love animate">بكل حب من أحمد إلى روان ❤️</div>
@@ -181,7 +171,7 @@
 
         function checkPassword() {
             const input = document.getElementById("passwordInput").value;
-            if (input === correctPassword) {
+            if (input.trim() === correctPassword.trim()) {
                 document.getElementById("lockScreen").style.display = "none";
                 document.getElementById("startBtn").style.display = "block";
             } else {
@@ -191,7 +181,11 @@
 
         function startSurprise() {
             const audio = document.getElementById("bgMusic");
-            audio.play().catch(e => console.log("الصوت يحتاج تفاعل"));
+            
+            // محاولة تشغيل الموسيقى
+            audio.play().catch(error => {
+                console.log("تعذر تشغيل الصوت تلقائياً، جاري المحاولة مرة أخرى.");
+            });
 
             document.getElementById("startBtn").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
@@ -200,8 +194,12 @@
             paragraphs.forEach((p, index) => {
                 setTimeout(() => {
                     p.classList.add('show');
-                    window.scrollTo(0, document.body.scrollHeight);
-                }, index * 2500);
+                    // تمرير تلقائي للأسفل لرؤية الكلام الجديد
+                    window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                }, index * 2000); // كل ثانيتين تظهر جملة
             });
         }
     </script>
