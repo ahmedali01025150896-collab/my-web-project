@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عيد ميلاد سعيد يا روان ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- تنسيق الصفحة والخلفية --- */
         body, html {
             height: 100%;
             margin: 0;
             padding: 0;
             background: black;
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Cairo', sans-serif; /* خط أساسي أنيق */
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* خلفية النجوم المتحركة */
+        /* خلفية النجوم */
         .stars-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -38,7 +39,6 @@
             to { background-position: -10000px 5000px; }
         }
 
-        /* --- حاوية المحتوى --- */
         .container {
             position: relative;
             z-index: 2;
@@ -52,74 +52,82 @@
         }
 
         .content-box {
-            max-width: 700px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 77, 77, 0.3);
-            box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
-        }
-
-        #lockScreen {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        input {
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #ff4d4d;
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            font-size: 1rem;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 77, 77, 0.4);
+            box-shadow: 0 0 30px rgba(255, 77, 77, 0.15);
         }
 
         h1 {
             color: #ff4d4d;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
+            font-family: 'Reem Kufi', sans-serif; /* خط كوفي مزخرف للعناوين */
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-shadow: 0 0 15px rgba(255, 77, 77, 0.9);
         }
 
+        /* --- تأثير الظهور التدريجي والمزخرف --- */
         .animate {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
+            font-family: 'Amiri', serif; /* خط أميري كلاسيكي وفخم للرسالة */
+            font-size: 1.5rem;
+            line-height: 2.2;
+            margin-bottom: 30px;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 1s ease-out;
-            display: none; 
+            filter: blur(10px); /* يبدأ بضبابية */
+            transform: scale(0.9); /* يبدأ أصغر قليلاً */
+            transition: all 2.5s cubic-bezier(0.4, 0, 0.2, 1); /* حركة ناعمة جداً وطويلة */
+            display: none;
         }
 
         .show {
             display: block !important;
             opacity: 1 !important;
-            transform: translateY(0) !important;
+            filter: blur(0); /* يختفي الضباب بالتدريج */
+            transform: scale(1); /* يعود لحجمه الطبيعي */
         }
 
         .highlight {
             color: #ff4d4d;
             font-weight: bold;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
+            text-shadow: 0 0 5px rgba(255, 77, 77, 0.5);
+        }
+
+        input {
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid #ff4d4d;
+            background: #111;
+            color: white;
+            text-align: center;
+            font-size: 1.1rem;
+            width: 80%;
+            margin-bottom: 20px;
         }
 
         button {
-            background: #ff4d4d;
+            background: linear-gradient(45deg, #ff4d4d, #ff1a1a);
             color: white;
             border: none;
-            padding: 15px 40px;
+            padding: 15px 45px;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            box-shadow: 0 0 15px #ff4d4d;
-            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 77, 77, 0.4);
+            transition: 0.4s;
         }
 
         button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #ff4d4d;
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(255, 77, 77, 0.6);
+        }
+
+        .footer-love {
+            margin-top: 50px;
+            font-style: italic;
+            color: #ffb3b3;
         }
     </style>
 </head>
@@ -134,9 +142,10 @@
 
     <div class="container">
         <div id="lockScreen" class="content-box">
-            <h2 style="color: #ff4d4d;">الموقع محمي ❤️</h2>
+            <h2 style="color: #ff4d4d; font-family: 'Reem Kufi';">الموقع محمي ❤️</h2>
             <p>اكتب كلمة المرور علشان تشوف المفاجأة</p>
             <input type="text" id="passwordInput" placeholder="ادخلي كلمة المرور هنا...">
+            <br>
             <button onclick="checkPassword()">دخول ✨</button>
         </div>
 
@@ -149,7 +158,7 @@
                 <p class="animate">النهارده مش يوم عادي خالص… النهارده اليوم اللي الدنيا كسبت فيه واحدة زيك 🌍✨</p>
                 <p class="animate">اليوم اللي اتولدت فيه أجمل ضحكة، وأحن قلب، وألطف روح ممكن حد يقابلها 💖</p>
                 <p class="animate highlight">16 سنة يا بنتي 😭🎉</p>
-                <p class="animate">ستاشر سنة من الجمال، والطيبة، والبنان الحلو، والضحك اللي بيغيّر أي يوم وحش لضحك وفرحة 💕🌸</p>
+                <p class="animate">ستاشر سنة من الجمال، والطيبة، والضحك اللي بيغيّر أي يوم وحش لضحك وفرحة 💕🌸</p>
                 <p class="animate">كل سنة وانتي أحلى حاجة حصلت في حياتي ❤️</p>
                 <p class="animate">كل سنة وانتي قريبة مني، وضحكتك ماليه الدنيا حواليا نور وسعادة 💫</p>
                 <p class="animate">بجد مهما كتبت كلام مش هيوصف قد إيه انتي غالية عليا 🫶🏻💘</p>
@@ -158,7 +167,7 @@
                 <p class="animate">يارب السنة دي تكون أسعد سنة في حياتك 🎂✨</p>
                 <p class="animate highlight">16 سنة؟ بقيتي قمر معتمد 🌙💘</p>
                 <p class="animate">أنا بحبك حب قد السما وأكبر 💞🌍</p>
-                <p class="animate" style="font-size: 1.5rem;">بحبك أوي أوي أوي أوي أوي 😭❤️❤️❤️❤️</p>
+                <p class="animate highlight" style="font-size: 2rem;">بحبك أوي أوي أوي أوي أوي 😭❤️❤️</p>
                 <p class="animate">وكل سنة وانتي حبيبتي، وصاحبتي، وأجمل نعمة في حياتي 💞🫶🏻🌸</p>
             </div>
             
@@ -175,8 +184,6 @@
             if (input.trim() === correctPassword.trim()) {
                 document.getElementById("lockScreen").style.display = "none";
                 document.getElementById("startBtn").style.display = "block";
-                
-                // حركة ذكية: بنجهز الملف الصوتي في الخلفية بمجرد الدخول
                 audio.load();
             } else {
                 alert("كلمة المرور غلط يا جميل، ركزي في الـ emojis والمسافات! ❤️");
@@ -184,13 +191,8 @@
         }
 
         function startSurprise() {
-            // تشغيل الصوت مع التأكد إنه ميكررش القفلة
             audio.currentTime = 0; 
-            audio.play().then(() => {
-                console.log("الموسيقى تعمل بنجاح");
-            }).catch(error => {
-                console.log("خطأ في التشغيل: ", error);
-            });
+            audio.play();
 
             document.getElementById("startBtn").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
@@ -203,7 +205,7 @@
                         top: document.body.scrollHeight,
                         behavior: 'smooth'
                     });
-                }, index * 2000); 
+                }, index * 3500); // جعلت الفارق الزمني أطول قليلاً (3.5 ثانية) ليتمكن المستخدم من القراءة بتمهل
             });
         }
     </script>
