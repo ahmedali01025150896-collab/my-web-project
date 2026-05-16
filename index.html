@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عيد ميلاد سعيد يا روان ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- تنسيق الصفحة والخلفية --- */
         body, html {
             height: 100%;
             margin: 0;
             padding: 0;
             background: black;
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Amiri', serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -38,7 +39,6 @@
             to { background-position: -10000px 5000px; }
         }
 
-        /* --- حاوية المحتوى --- */
         .container {
             position: relative;
             z-index: 2;
@@ -52,74 +52,75 @@
         }
 
         .content-box {
-            max-width: 700px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 30px;
-            border-radius: 20px;
+            max-width: 750px;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 25px;
             border: 1px solid rgba(255, 77, 77, 0.3);
-            box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
-        }
-
-        #lockScreen {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        input {
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #ff4d4d;
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            font-size: 1rem;
+            box-shadow: 0 0 30px rgba(255, 77, 77, 0.3);
         }
 
         h1 {
             color: #ff4d4d;
-            font-size: 2.5rem;
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 3rem;
             margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(255, 77, 77, 0.8);
+            text-shadow: 0 0 15px rgba(255, 77, 77, 0.8);
         }
 
-        .animate {
-            font-size: 1.2rem;
-            line-height: 1.8;
+        .message-p {
+            font-size: 1.6rem;
+            line-height: 2.2;
             margin-bottom: 25px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 1s ease-out;
-            display: none; /* مخفي في البداية */
+            display: block;
         }
 
-        .show {
-            display: block !important;
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+        /* تنسيق الكلمة الواحدة عند ظهورها */
+        .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease-out;
+            margin: 0 4px;
+        }
+
+        .word.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .highlight {
             color: #ff4d4d;
             font-weight: bold;
-            font-size: 1.4rem;
+            font-size: 1.9rem;
+            font-family: 'Aref Ruqaa', serif;
         }
 
         button {
-            background: #ff4d4d;
+            background: linear-gradient(45deg, #ff4d4d, #b30000);
             color: white;
             border: none;
-            padding: 15px 40px;
+            padding: 15px 45px;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             cursor: pointer;
-            box-shadow: 0 0 15px #ff4d4d;
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.4);
             transition: 0.3s;
+            font-family: 'Aref Ruqaa', serif;
         }
 
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #ff4d4d;
+        input {
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid #ff4d4d;
+            background: #000;
+            color: white;
+            text-align: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            width: 85%;
+            outline: none;
+            font-family: 'Aref Ruqaa', serif;
         }
     </style>
 </head>
@@ -128,80 +129,50 @@
     <div class="stars-container"></div>
     <div class="twinkling"></div>
 
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop preload="auto">
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
     <div class="container">
         <div id="lockScreen" class="content-box">
-            <h2 style="color: #ff4d4d;">الموقع محمي ❤️</h2>
-            <p>اكتب كلمة المرور علشان تشوف المفاجأة</p>
-            <input type="text" id="passwordInput" placeholder="ادخلي كلمة المرور هنا...">
+            <h2 style="color: #ff4d4d; font-family: 'Aref Ruqaa'; font-size: 2.2rem;">الموقع محمي ❤️</h2>
+            <p style="font-size: 1.3rem;">اكتبي كلمة المرور السرية ✨</p>
+            <input type="text" id="passwordInput" placeholder="اكتبي الكلمة هنا...">
+            <br>
             <button onclick="checkPassword()">دخول ✨</button>
         </div>
 
         <button id="startBtn" style="display: none;" onclick="startSurprise()">اضغط هنا يا روان ✨</button>
 
         <div id="mainContent" style="display: none;" class="content-box">
-            <h1 class="animate">Happy Birthday روان ❤️🎂</h1>
-            
-            <div class="message-container">
-                <p class="animate">النهارده مش يوم عادي خالص… النهارده اليوم اللي الدنيا كسبت فيه واحدة زيك 🌍✨</p>
-                <p class="animate">اليوم اللي اتولدت فيه أجمل ضحكة، وأحن قلب، وألطف روح ممكن حد يقابلها 💖</p>
-                <p class="animate highlight">16 سنة يا بنتي 😭🎉</p>
-                <p class="animate">ستاشر سنة من الجمال، والطيبة، والبنان الحلو، والضحك اللي بيغيّر أي يوم وحش لضحك وفرحة 💕🌸</p>
-                <p class="animate">كل سنة وانتي أحلى حاجة حصلت في حياتي ❤️</p>
-                <p class="animate">كل سنة وانتي قريبة مني، وضحكتك ماليه الدنيا حواليا نور وسعادة 💫</p>
-                <p class="animate">بجد مهما كتبت كلام مش هيوصف قد إيه انتي غالية عليا 🫶🏻💘</p>
-                <p class="animate highlight">انتي مش بس حبيبتي…</p>
-                <p class="animate">انتي الأمان، والونس، والراحة، والسبب اللي بيخليني أبتسم من غير سبب 🥺❤️</p>
-                <p class="animate">يارب السنة دي تكون أسعد سنة في حياتك 🎂✨</p>
-                <p class="animate highlight">16 سنة؟ بقيتي قمر معتمد 🌙💘</p>
-                <p class="animate">أنا بحبك حب قد السما وأكبر 💞🌍</p>
-                <p class="animate" style="font-size: 1.5rem;">بحبك أوي أوي أوي أوي أوي 😭❤️❤️❤️❤️</p>
-                <p class="animate">وكل سنة وانتي حبيبتي، وصاحبتي، وأجمل نعمة في حياتي 💞🫶🏻🌸</p>
-            </div>
-            
-            <div class="footer-love animate">بكل حب من أحمد إلى روان ❤️</div>
+            <h1 id="mainTitle"></h1>
+            <div id="messageContainer"></div>
+            <div id="finalFooter" style="margin-top: 30px; font-style: italic; color: #ffb3b3; display: none; font-size: 1.4rem; font-family: 'Aref Ruqaa';">بكل حب من أحمد إلى روان ❤️</div>
         </div>
     </div>
 
     <script>
-        const correctPassword = "كل سنه وانتِ طيبه ي رورو🥹💞";
+        const pass = "كل سنه وانتِ طيبه ي رورو🥹💞";
 
         function checkPassword() {
-            const input = document.getElementById("passwordInput").value;
-            if (input.trim() === correctPassword.trim()) {
+            const input = document.getElementById("passwordInput").value.trim();
+            if (input === pass) {
                 document.getElementById("lockScreen").style.display = "none";
                 document.getElementById("startBtn").style.display = "block";
             } else {
-                alert("كلمة المرور غلط يا جميل، ركزي في الـ emojis والمسافات! ❤️");
+                alert("كلمة المرور غلط يا جميلة ❤️");
             }
         }
 
-        function startSurprise() {
-            const audio = document.getElementById("bgMusic");
-            
-            // محاولة تشغيل الموسيقى
-            audio.play().catch(error => {
-                console.log("تعذر تشغيل الصوت تلقائياً، جاري المحاولة مرة أخرى.");
-            });
-
-            document.getElementById("startBtn").style.display = "none";
-            document.getElementById("mainContent").style.display = "block";
-
-            const paragraphs = document.querySelectorAll('.animate');
-            paragraphs.forEach((p, index) => {
-                setTimeout(() => {
-                    p.classList.add('show');
-                    // تمرير تلقائي للأسفل لرؤية الكلام الجديد
-                    window.scrollTo({
-                        top: document.body.scrollHeight,
-                        behavior: 'smooth'
-                    });
-                }, index * 2000); // كل ثانيتين تظهر جملة
-            });
-        }
-    </script>
-</body>
-</html>
+        const messages = [
+            "النهارده مش يوم عادي خالص… النهارده اليوم اللي الدنيا كسبت فيه واحدة زيك 🌍✨",
+            "اليوم اللي اتولدت فيه أجمل ضحكة، وأحن قلب، وألطف روح ممكن حد يقابلها 💖",
+            "16 سنة يا بنتي 😭🎉",
+            "ستاشر سنة من الجمال، والطيبة، والضحك اللي بيغيّر أي يوم وحش لفرحة 💕🌸",
+            "كل سنة وانتي أحلى حاجة حصلت في حياتي ❤️",
+            "بجد مهما كتبت كلام مش هيوصف قد إيه انتي غالية عليا 🫶🏻💘",
+            "انتي الأمان والونس والراحة..",
+            "يارب السنة دي تكون أسعد سنة في حياتك 🎂✨",
+            "16 سنة؟ بقيتي قمر معتمد 🌙💘",
+            "أنا بحبك حب قد السما وأكبر 💞🌍",
+            "
