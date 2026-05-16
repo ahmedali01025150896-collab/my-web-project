@@ -90,7 +90,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 1s ease-out;
-            display: none; /* مخفي في البداية */
+            display: none; 
         }
 
         .show {
@@ -128,7 +128,7 @@
     <div class="stars-container"></div>
     <div class="twinkling"></div>
 
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop preload="auto">
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
@@ -168,23 +168,28 @@
 
     <script>
         const correctPassword = "كل سنه وانتِ طيبه ي رورو🥹💞";
+        const audio = document.getElementById("bgMusic");
 
         function checkPassword() {
             const input = document.getElementById("passwordInput").value;
             if (input.trim() === correctPassword.trim()) {
                 document.getElementById("lockScreen").style.display = "none";
                 document.getElementById("startBtn").style.display = "block";
+                
+                // حركة ذكية: بنجهز الملف الصوتي في الخلفية بمجرد الدخول
+                audio.load();
             } else {
                 alert("كلمة المرور غلط يا جميل، ركزي في الـ emojis والمسافات! ❤️");
             }
         }
 
         function startSurprise() {
-            const audio = document.getElementById("bgMusic");
-            
-            // محاولة تشغيل الموسيقى
-            audio.play().catch(error => {
-                console.log("تعذر تشغيل الصوت تلقائياً، جاري المحاولة مرة أخرى.");
+            // تشغيل الصوت مع التأكد إنه ميكررش القفلة
+            audio.currentTime = 0; 
+            audio.play().then(() => {
+                console.log("الموسيقى تعمل بنجاح");
+            }).catch(error => {
+                console.log("خطأ في التشغيل: ", error);
             });
 
             document.getElementById("startBtn").style.display = "none";
@@ -194,12 +199,11 @@
             paragraphs.forEach((p, index) => {
                 setTimeout(() => {
                     p.classList.add('show');
-                    // تمرير تلقائي للأسفل لرؤية الكلام الجديد
                     window.scrollTo({
                         top: document.body.scrollHeight,
                         behavior: 'smooth'
                     });
-                }, index * 2000); // كل ثانيتين تظهر جملة
+                }, index * 2000); 
             });
         }
     </script>
